@@ -2,42 +2,56 @@
 const COLOR_ON = '#27efb5'; // cyan
 const COLOR_OFF = '#efb527'; // orange
 
-const Item = withEnergy()(props => {
+const useEnergyFlowEntering = (energy, { element }) => {
+  anime({
+    targets: element.current,
+    backgroundColor: [COLOR_OFF, COLOR_ON],
+    duration: energy.getDuration().enter,
+    easing: 'linear'
+  });
+}
+
+const useEnergyFlowExiting = (energy, { element }) => {
+  anime({
+    targets: element.current,
+    backgroundColor: [COLOR_ON, COLOR_OFF],
+    duration: energy.getDuration().exit,
+    easing: 'linear'
+  });
+}
+
+const useEnergyFlowRemove = (energy, { element }) => {
+  anime.remove(element.current);
+};
+
+// Internal implementation
+function useEnergyFlow (energy, refs) {
+  useEnergyFlowEntering && useEnergyFlowEntering(energy)(refs);
+  useEnergyFlowExiting && useEnergyFlowExiting(energy)(refs);
+  useEnergyFlowRemove && useEnergyFlowRemove(energy)(refs);
+}
+
+function ItemComponent ({ energy, children }) {
   const element = React.useRef();
-  const { energy: { flow, getDuration }, children } = props;
-  const duration = getDuration();
 
-  React.useEffect(() => {
-    if (flow.entering) {
-      anime({
-        targets: element.current,
-        backgroundColor: [COLOR_OFF, COLOR_ON],
-        duration: duration.enter,
-        easing: 'linear'
-      });
-    }
-    else if (flow.exiting) {
-      anime({
-        targets: element.current,
-        backgroundColor: [COLOR_ON, COLOR_OFF],
-        duration: duration.exit,
-        easing: 'linear'
-      });
-    }
-
-    return () => anime.remove(element.current);
-  }, [flow.value]);
+  energy.useEnergyFlow({ element });
 
   return (
     <div
       ref={element}
       style={{ padding: 5, backgroundColor: COLOR_OFF }}
     >
-      <div>{flow.value}</div>
+      <div>{energy.flow.value}</div>
       <div style={{ marginLeft: 10 }}>{children}</div>
     </div>
   );
-});
+}
+
+const Item = withEnergy({
+  useEnergyFlowEntering,
+  useEnergyFlowExiting,
+  useEnergyFlowRemove
+})(ItemComponent);
 
 function Sandbox () {
   const timeout = React.useRef();

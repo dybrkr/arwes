@@ -31,6 +31,14 @@ The main functionalities which power the UI component system.
 
 Resource loading, responsive control, and general browser API tools.
 
+#### `@arwes/design`
+
+![status](https://img.shields.io/badge/status-in%20concept-999999.svg)
+![downloads](https://img.shields.io/npm/dm/@arwes/design.svg)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@arwes/design)
+
+Styling tools using [JSS](https://cssinjs.org) with React components.
+
 #### `@arwes/animation`
 
 ![status](https://img.shields.io/badge/status-in%20development-orange.svg)
@@ -46,14 +54,6 @@ Assemble and disassemble user interfaces using animations from React components.
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@arwes/sounds)
 
 Define, manage and control interactive sound effects from React components.
-
-#### `@arwes/design`
-
-![status](https://img.shields.io/badge/status-in%20concept-999999.svg)
-![downloads](https://img.shields.io/npm/dm/@arwes/design.svg)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/@arwes/design)
-
-Styling tools using [JSS](https://cssinjs.org) with React components.
 
 ### Implementations
 

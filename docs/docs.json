@@ -1,62 +1,70 @@
 [
   {
     "id": "PROJECT",
-    "title": "Arwes Project",
+    "title": "Project",
     "document": "README.md"
+  },
+  {
+    "id": "COMMUNITY",
+    "title": "Community",
+    "children": [
+      {
+        "id": "APPS",
+        "title": "Apps"
+      }
+    ]
+  },
+  {
+    "id": "GUIDELINES",
+    "title": "Guidelines",
+    "document": "guidelines/guidelines.md",
+    "children": [
+      {
+        "id": "PURPOSE",
+        "title": "Purpose",
+        "document": "guidelines/purpose/purpose.md"
+      },
+      {
+        "id": "INSPIRATION",
+        "title": "Inspiration",
+        "document": "guidelines/inspiration/inspiration.md"
+      },
+      {
+        "id": "SYSTEMS",
+        "title": "Systems",
+        "document": "guidelines/systems/systems.md"
+      },
+      {
+        "id": "STATES",
+        "title": "States",
+        "document": "guidelines/states/states.md"
+      },
+      {
+        "id": "EVENTS",
+        "title": "Events",
+        "document": "guidelines/events/events.md"
+      }
+    ]
+  },
+  {
+    "id": "DESIGN",
+    "title": "Design Management System",
+    "document": "design/design-management-system.md"
+  },
+  {
+    "id": "ANIMATION",
+    "title": "Animation Management System",
+    "document": "animation/animation-management-system.md"
+  },
+  {
+    "id": "SOUNDS",
+    "title": "Sounds Management System",
+    "document": "sounds/sounds-management-system.md"
   },
   {
     "id": "FAQ",
     "title": "FAQ",
     "document": "FAQ.md"
-  },
-  {
-    "id": "SHOWCASE",
-    "title": "Showcase"
-  },
-  {
-    "id": "GUIDELINES",
-    "title": "Guidelines",
-    "document": "guidelines/README.md",
-    "children": [
-      {
-        "title": "Purpose",
-        "document": "guidelines/purpose.md"
-      },
-      {
-        "title": "Inspiration",
-        "document": "guidelines/inspiration.md"
-      },
-      {
-        "title": "Animation and Sounds",
-        "document": "guidelines/animation-and-sounds.md"
-      },
-      {
-        "title": "Design",
-        "document": "guidelines/design.md"
-      }
-    ]
-  },
-  {
-    "id": "ANIMATION",
-    "title": "Animation",
-    "document": "animation/README.md",
-    "children": [
-      {
-        "title": "Animation Management System",
-        "document": "animation/animation-management-system.md"
-      }
-    ]
-  },
-  {
-    "id": "SOUNDS",
-    "title": "Sounds",
-    "document": "sounds/README.md",
-    "children": [
-      {
-        "title": "Sounds Management System",
-        "document": "sounds/sounds-management-system.md"
-      }
-    ]
   },
   {
     "id": "ROADMAP",

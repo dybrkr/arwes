@@ -93,7 +93,8 @@ design.
 
 - [ ] [#63](https://github.com/arwes/arwes/issues/63) Research SEO support for
 animated components.
-- [ ] Declarative and extensible animation component tools.
+- [ ] [#70](https://github.com/arwes/arwes/issues/70) Declarative and extensible
+animation component tools.
 
 #### `@arwes/sounds`
 

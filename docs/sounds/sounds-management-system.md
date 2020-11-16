@@ -16,82 +16,13 @@ of a certain type, or an specific node.
 - If many nodes play the same `player` at the same time, it is responsibility
 of the `player` to determine if the sound is played multiple times or only once.
 
-## `SoundsProvider`
+Only if a node is animated, it can play sounds.
 
-The React provider `<SoundsProvider />` can be used to setup the `players` and
-`audio` settings in a system.
+If multiple nodes in a system play the same sound at the same time, the sound
+should be played only once.
 
-`players` is an object without defined properties. The idea is that it contains
-all sound players using any kind of JavaScript tool as properties.
-
-`audio` is an object without defined properties. They can be defined by the
-developer and used by the components however it is required.
-
-```js
-// `createPlayer` is a factory of sound players.
-// The tool used for this is up to the developer.
-<SoundsProvider
-    players={{
-        click: createPlayer('click.mp3'),
-        open: createPlayer('open.mp3'),
-        flick: createPlayer('flick.mp3')
-    }}
-    audio={{
-        mute: false
-    }}
->
-    <App />
-</SoundsProvider>
-```
-
-The providers can be stacked and their props will be merged.
-
-## `withSounds`
-
-A component can be converted in a node using the High Order Component (HOC)
-`withSounds`.
-
-The HOC accepts `players` and `audio` settings to customize all nodes created
-of this type.
-
-The component can be provided with the same props.
-
-And the component will receive the `players` and `audio` objects as props. Their
-values will be the result of merging the props provided to the component in order
-of `<SoundsProvider />`, `withSounds`, and the component itself.
-
-```js
-const MyComponent = ({ players, audio }) => (
-    <button
-        onClick={() => {
-            if (players.click && !audio.mute) {
-                players.click.play();
-            }
-        }}
-    >
-        Play me!
-    </button>
-);
-
-const settings = {
-    players: {
-        click: createPlayer('click.ogg')
-    },
-    audio: {
-        mute: true
-    }
-};
-const MyNode = withSounds(settings)(MyComponent);
-
-<MyNode
-    players={{
-        click: createPlayer('click.wav')
-    }}
-    audio={{
-        mute: false
-    }}
-/>
-```
+If a sound is playing and another node tries to play it again, the sound should
+restarts.
 
 ## Sound Tools
 
